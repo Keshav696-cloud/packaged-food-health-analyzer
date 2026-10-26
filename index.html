@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Packaged Food Health Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Packaged Food Health Analyzer</h1>
+        <p class="subtitle">Enter a product's ingredient list and nutrition facts (per 100g) to get a health score.</p>
+
+        <form id="analyzer-form">
+            <label for="product_name">Product Name</label>
+            <input type="text" id="product_name" placeholder="e.g. Instant Noodles" required>
+
+            <label for="ingredients">Ingredients List</label>
+            <textarea id="ingredients" rows="4" placeholder="e.g. Wheat flour, palm oil, salt, MSG, sodium benzoate..." required></textarea>
+
+            <div class="nutrients-grid">
+                <div>
+                    <label for="sugar">Sugar (g)</label>
+                    <input type="number" id="sugar" step="0.1" min="0" required>
+                </div>
+                <div>
+                    <label for="saturated_fat">Saturated Fat (g)</label>
+                    <input type="number" id="saturated_fat" step="0.1" min="0" required>
+                </div>
+                <div>
+                    <label for="sodium">Sodium (mg)</label>
+                    <input type="number" id="sodium" step="1" min="0" required>
+                </div>
+                <div>
+                    <label for="protein">Protein (g)</label>
+                    <input type="number" id="protein" step="0.1" min="0" required>
+                </div>
+                <div>
+                    <label for="calories">Calories (kcal)</label>
+                    <input type="number" id="calories" step="1" min="0" required>
+                </div>
+            </div>
+
+            <button type="submit">Analyze</button>
+        </form>
+
+        <div id="result" class="hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
